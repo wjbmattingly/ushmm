@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+ushmm/__init__.py
+ushmm/testimonies.py
+ushmm.egg-info/PKG-INFO
+ushmm.egg-info/SOURCES.txt
+ushmm.egg-info/dependency_links.txt
+ushmm.egg-info/requires.txt
+ushmm.egg-info/top_level.txt

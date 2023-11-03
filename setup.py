@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ushmm',
-    version='0.0.1',  # Start with a small number and increase it with every change you make
+    version='0.0.2',  # Start with a small number and increase it with every change you make
     author='W.J.B. Mattingly',
     description='A suite of tools for working with data at the United States Holocaust Memorial Museum',
     long_description=open('README.md').read(),
@@ -10,7 +10,6 @@ setup(
     url='https://github.com/yourusername/your_package_name',  # Use the URL to the github repo if available
     packages=find_packages(),  # find_packages() is used to automatically find all packages and subpackages
     classifiers=[
-        'Intended Audience :: Digital Humanists',  # Define that your audience are developers
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.10',

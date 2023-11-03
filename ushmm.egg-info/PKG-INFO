@@ -1,12 +1,27 @@
+Metadata-Version: 2.1
+Name: ushmm
+Version: 0.0.1
+Summary: A suite of tools for working with data at the United States Holocaust Memorial Museum
+Home-page: https://github.com/yourusername/your_package_name
+Author: W.J.B. Mattingly
+Keywords: pdf image testimonies
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # ushmm: A Python Library for Oral Testimonies at the USHMM
 
 This README provides an overview of the `ushmm` Python library, developed for parsing and processing oral testimonies from the [United States Holocaust Memorial Museum](https://www.ushmm.org/). The `ushmm` library is designed to facilitate the conversion of PDFs into structured data, which can then be used for various research and educational purposes.
 
 ## Introduction
 
-The `ushmm` library streamlines the process of handling the collection of oral testimonies available at the USHMM. These testimonies, which come in PDF format, are processed into raw text and subsequently structured data. The library wraps around Tesseract (for OCR) and Poppler (for parsing PDFs). It also converts the testimonies into structured HTML.
+The `ushmm` library streamlines the process of handling the collection of oral testimonies available at the USHMM. These testimonies, which come in PDF format, are processed into raw text and subsequently structured data. The library wraps around Tesseract (for OCR) and Poppler (for parsing PDFs), making the dataset accessible via HuggingFace.
 
-![Original Testimony Image](https://raw.githubusercontent.com/wjbmattingly/ushmm/main/images/original.png)
+![Sample Testimony](https://raw.githubusercontent.com/wjbmattingly/ushmm/main/images/header-page.png)
 
 ## Installation
 
@@ -80,3 +95,11 @@ The `ushmm` library is provided under the MIT License. See the [LICENSE](https:/
 ## Acknowledgments
 
 This library was made possible by the collaborative efforts at the United States Holocaust Memorial Museum and contributions from the open-source community.
+
+![Cropped Testimony Image](https://raw.githubusercontent.com/wjbmattingly/ushmm/main/images/cropped.png)
+
+For more detailed information about the `ushmm` library and its applications, please refer to the [official blog post](#).
+
+---
+
+This README is generated from the blog documentation provided. All images are hosted on the GitHub repository located at [wjbmattingly/ushmm](https://github.com/wjbmattingly/ushmm).
