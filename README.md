@@ -1,0 +1,90 @@
+# ushmm: A Python Library for Oral Testimonies at the USHMM
+
+This README provides an overview of the `ushmm` Python library, developed for parsing and processing oral testimonies from the [United States Holocaust Memorial Museum](https://www.ushmm.org/). The `ushmm` library is designed to facilitate the conversion of PDFs into structured data, which can then be used for various research and educational purposes.
+
+## Introduction
+
+The `ushmm` library streamlines the process of handling the collection of oral testimonies available at the USHMM. These testimonies, which come in PDF format, are processed into raw text and subsequently structured data. The library wraps around Tesseract (for OCR) and Poppler (for parsing PDFs), making the dataset accessible via HuggingFace.
+
+![Sample Testimony](https://raw.githubusercontent.com/wjbmattingly/ushmm/main/images/header-page.png)
+
+## Installation
+
+You can install the `ushmm` library directly using pip:
+
+```shell
+pip install ushmm
+```
+
+### Additional Dependencies
+
+For macOS users:
+
+1. Create a new Conda environment.
+2. Install Tesseract and Poppler using Homebrew or Conda-Forge:
+
+```shell
+conda install -c conda-forge tesseract poppler
+```
+
+3. Ensure you uninstall and then reinstall `pdf2image` via conda-forge if necessary:
+
+```shell
+pip uninstall pdf2image
+conda install -c conda-forge pdf2image
+```
+
+## Usage
+
+The `ushmm` library includes functions that facilitate the conversion of PDF testimonies into images, and then to text, while cleaning and removing unwanted elements such as footers:
+
+```python
+from ushmm import pdf_to_images, images_to_text, clean_texts, remove_footers, process_testimony_texts
+
+# Convert PDF to images
+images = pdf_to_images("path/to/pdf", "path/to/images", save=True)
+
+# Remove footers using Open-CV
+cropped_images = remove_footers("path/to/images", "path/to/cropped_images", save=True)
+
+# Perform OCR on the images
+texts = images_to_text("path/to/cropped_images", "path/to/text", save=True)
+
+# Clean the OCR output
+cleaned_texts = clean_texts("path/to/text", "path/to/cleaned_text", save=True)
+
+# Process the cleaned text into structured data
+html_result = process_testimony_texts("path/to/cleaned_text", "output_file.html", save=True)
+```
+
+## Features
+
+- **PDF Conversion**: Converts PDF documents into a sequence of images.
+- **Image Cropping**: Identifies and removes footers from images using Open-CV.
+- **OCR Processing**: Applies Tesseract OCR to convert images into text.
+- **Data Cleaning**: Cleans the OCR output to prepare it for structured data conversion.
+- **Structured Data**: Parses raw text files and converts them into structured HTML documents.
+
+## Data Accessibility
+
+Making the data accessible is a crucial aspect of the `ushmm` library. With the provided functions, users can not only process the testimonies but also make them available for public access and research.
+
+## Contributing
+
+Contributions to the `ushmm` library are welcome. Please refer to the [contribution guidelines](https://github.com/wjbmattingly/ushmm/blob/main/CONTRIBUTING.md) for more information.
+
+## License
+
+The `ushmm` library is provided under the MIT License. See the [LICENSE](https://github.com/wjbmattingly/ushmm/blob/main/LICENSE) file for more details.
+
+## Acknowledgments
+
+This library was made possible by the collaborative efforts at the United States Holocaust Memorial Museum and contributions from the open-source community.
+
+![Cropped Testimony Image](https://raw.githubusercontent.com/wjbmattingly/ushmm/main/images/cropped.png)
+
+For more detailed information about the `ushmm` library and its applications, please refer to the [official blog post](#).
+
+---
+
+This README is generated from the blog documentation provided. All images are hosted on the GitHub repository located at [wjbmattingly/ushmm](https://github.com/wjbmattingly/ushmm).
