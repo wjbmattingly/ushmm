@@ -2,6 +2,15 @@
 
 In this blog post, we will be looking at a collection of oral testimonies at the [United States Holocaust Memorial Museum](https://www.ushmm.org/) and a Python library, `ushmm`, we developed for working with these data. These testimonies are available as PDFs at the museum. In this post, we will look at the steps we took to convert these PDFs into raw text and then into structured data. Finally, we will discuss the practices we used to make this dataset available via HuggingFace.
 
+# The Pipeline
+
+Our pipeline has three primary steps. First, we convert the PDFs of the testimonies into a sequence of images. This is important because current OCR frameworks in Python process images, not PDFs natively. This image pipeline also examines the resulting image. If a footer is found, it removes the footer and saves the cropped image. This pipeline looks like this:
+
+<div style="width: 960px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:960px; height:720px" src="https://lucid.app/documents/embedded/88a03688-dff9-4ec7-b4aa-84767b5c2fb4" id="uAOLyWikh1~l"></iframe></div>
+
+
+
+
 To work with the `ushmm` library, you pip install it with the following commands:
 
 ```
