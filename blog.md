@@ -13,13 +13,16 @@ Additionally, not all PDFs are formatted the same way. These testimonies were pr
 
 The testimonies used in this blog have a front-page that looks like this:
 
-![front page](images/header-page.png)
+<!-- ![front page](images/header-page.png) -->
+<img src="images/header-page.png" height="400" alt="alt text">
+
 
 # PDF to Cleaned Images
 
 When working with PDFs, it is often necessary to convert the original PDF into a sequence of images. This is because most Python OCR frameworks require text as inputs. It also allows us to manipulate images individually. The pipeline we developed looks like this:
 
-![pdf2image pipeline](images/pdf2images.png)
+<!-- ![pdf2image pipeline](images/pdf2images.png) -->
+<img src="images/pdf2images.png" height="200" alt="alt text">
 
 ## Converting a PDF into a sequence of Images
 
@@ -30,19 +33,22 @@ The first step in this pipeline requires us to separate the PDF into separate im
 
 In the next step, we need to remove footers. The footers often contain explanatory footnotes, but if we were to convert each image into raw text, these footnotes would be injected into the middle of a sentence at the end of a page. This would result in unclean OCR that would be difficult to correct. Here is an example of an image with a footer:
 
-![original](images/original.png)
+<!-- ![original](images/original.png)
+<img src="images/original.png" height="400" alt="alt text"> -->
 
 As you can see, the page contains a horizontal line below which sits some footnote material. This is a consistent structural element of every image that contains a footer. This means that we can use this pattern to create a ruler to remove the footer. This can be done via computer vision, or using a computer to view an image and perform some kind of task.
 
 For this project, we opted to use the Python library [Open-CV](https://pypi.org/project/opencv-python/). With Open-CV, we can identify this line and remove anything that comes beneath it. This allows us to save the cropped images, which now look like this:
 
-![cropped image](images/cropped.png)
+<!-- ![cropped image](images/cropped.png) -->
+<img src="images/cropped.png" height="400" alt="alt text">
 
 # Image to Clean Text
 
 Once we have cleaned images, we need to convert them into raw text. To do this, we can again leverage Python and the open-source OCR framework Tesseract. This pipeline looks like this:
 
-![image to text pipeline](images/image2html.png)
+<!-- ![image to text pipeline](images/image2html.png) -->
+<img src="images/image2html.png" height="200" alt="alt text">
 
 ## OCR
 
