@@ -234,7 +234,7 @@ def remove_headers(text: str) -> str:
     str: The text without headers.
     """
     # Define the header pattern
-    header_pattern = re.compile(r'USHMM Archives RG-\d{2}\.\d{3}\*\d{4} \d', re.IGNORECASE)
+    header_pattern = re.compile(r'USHMM Archives RG-\d{2}\.\d{3}\*\d{4} \d+', re.IGNORECASE)
 
     # Find all headers in the text
     headers = header_pattern.findall(text)
