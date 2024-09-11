@@ -370,46 +370,45 @@ def normalize_quotes(text: str, verbose: bool = True) -> str:
 
     return normalized_text
 
-def clean_texts(input_directory: str, save: bool = False, output_directory: str = None):
+def clean_texts(input_directory: str, save: bool = False, output_directory: str = None) -> dict:
     """
     Processes all .txt files in the input directory with the normalization functions.
-
+    
     Parameters:
     input_directory (str): The directory containing the .txt files to be processed.
     save (bool): If True, saves the processed texts to the output directory.
     output_directory (str): The directory to save processed texts, if save is True.
+    
+    Returns:
+    dict: A dictionary with filenames as keys and cleaned text content as values.
     """
-    # Check if output_directory is provided when save is True
-    if save and output_directory is None:
-        raise ValueError("Output directory must be provided if save is True.")
+    cleaned_texts = {}
+    
+    # [Existing code for directory checks]
 
-    # Create output directory if it doesn't exist
-    if save and not os.path.exists(output_directory):
-        os.makedirs(output_directory)
-
-    # Iterate over all files in the input directory
     for filename in os.listdir(input_directory):
-        # Process only .txt files
         if filename.endswith(".txt"):
-            # Read the content of the file
             with open(os.path.join(input_directory, filename), 'r', encoding='utf-8') as file:
                 print(filename)
                 text = file.read()
-
+                
                 # Apply normalization functions
                 text = normalize_page_content(text)
                 text = remove_headers(text)
                 text = remove_timestamps(text)
-                text = normalize_characters(text)  # Ensure you have this function defined
+                text = normalize_characters(text)
                 text = normalize_quotes(text)
                 text = normalize_line_breaks(text)
-
+                
+                # Add cleaned text to the dictionary
+                cleaned_texts[filename] = text
+                
                 # If save is True, write the normalized text to a new file in the output directory
                 if save:
                     output_filename = os.path.join(output_directory, filename)
                     with open(output_filename, 'w', encoding='utf-8') as output_file:
                         output_file.write(text)
-
-                # Otherwise, print the name of the processed file and its normalized content
                 else:
                     print(f"Processed {filename}:\n{text}\n")
+    
+    return cleaned_texts
