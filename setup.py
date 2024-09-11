@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ushmm',
-    version='0.0.5',  # Start with a small number and increase it with every change you make
+    version='0.0.6',  # Start with a small number and increase it with every change you make
     author='W.J.B. Mattingly',
     description='A suite of tools for working with data at the United States Holocaust Memorial Museum',
     long_description=open('README.md').read(),

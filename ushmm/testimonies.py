@@ -384,8 +384,10 @@ def clean_texts(input_directory: str, save: bool = False, output_directory: str 
     """
     cleaned_texts = {}
     
-    # [Existing code for directory checks]
-
+    if save and output_directory:
+        # Create the output directory if it does not exist
+        os.makedirs(output_directory, exist_ok=True)
+    
     for filename in os.listdir(input_directory):
         if filename.endswith(".txt"):
             with open(os.path.join(input_directory, filename), 'r', encoding='utf-8') as file:
