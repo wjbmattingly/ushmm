@@ -1,5 +1,0 @@
-pdf2image
-Pillow
-pytesseract
-unidecode
-opencv-python

@@ -95,7 +95,7 @@ def remove_footers(input_directory: str, output_directory: str = None, save: boo
             # Iterate over all found contours
             for contour in contours:
                 x, y, w, h = cv2.boundingRect(contour)
-                if h <= 2 and w > largest_contour_width and w > 40:  
+                if h <= 2 and w > largest_contour_width and w > 500:  
                     largest_contour = contour
                     largest_contour_width = w
     
